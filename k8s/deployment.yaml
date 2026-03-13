@@ -1,20 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: train-ticket-deployment
-  namespace: train-ticket
+  name: train-app
+  labels:
+    app: train-app
+
 spec:
   replicas: 2
+
   selector:
     matchLabels:
-      app: train-ticket
+      app: train-app
+
   template:
     metadata:
       labels:
-        app: train-ticket
+        app: train-app
+
     spec:
       containers:
-        - name: train-ticket-container
-          image: <IMAGE>
-          ports:
-            - containerPort: 8080
+      - name: train-app
+
+        image: 736722722555.dkr.ecr.ap-south-1.amazonaws.com/hackathon-app:latest
+
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 8080
+
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "256Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
