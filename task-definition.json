@@ -1,90 +1,38 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:348344234141:task-definition/docker-task:1",
-    "containerDefinitions": [
+  "family": "docker-task",
+  "executionRoleArn": "arn:aws:iam::736722722555:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "1024",
+  "memory": "3072",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "containerDefinitions": [
+    {
+      "name": "container",
+      "image": "736722722555.dkr.ecr.ap-south-1.amazonaws.com/hackathon-app:latest",
+      "cpu": 0,
+      "portMappings": [
         {
-            "name": "container",
-            "image": "736722722555.dkr.ecr.ap-south-1.amazonaws.com/hackathon-app:latest",
-            "cpu": 0,
-            "portMappings": [
-                {
-                    "name": "train",
-                    "containerPort": 8080,
-                    "hostPort": 8080,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
-                }
-            ],
-            "essential": true,
-            "environment": [],
-            "environmentFiles": [],
-            "mountPoints": [],
-            "volumesFrom": [],
-            "ulimits": [],
-            "logConfiguration": {
-                "logDriver": "awslogs",
-                "options": {
-                    "awslogs-group": "/ecs/docker-task",
-                    "awslogs-create-group": "true",
-                    "awslogs-region": "ap-south-1",
-                    "awslogs-stream-prefix": "ecs"
-                },
-                "secretOptions": []
-            },
-            "systemControls": []
+          "name": "train",
+          "containerPort": 8080,
+          "hostPort": 8080,
+          "protocol": "tcp",
+          "appProtocol": "http"
         }
-    ],
-    "family": "docker-task",
-    "executionRoleArn": "arn:aws:iam::736722722555:role/ecsTaskExecutionRole"
-    "networkMode": "awsvpc",
-    "revision": 1,
-    "volumes": [],
-    "status": "ACTIVE",
-    "requiresAttributes": [
-        {
-            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-        },
-        {
-            "name": "ecs.capability.execution-role-awslogs"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.ecr-auth"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
-        },
-        {
-            "name": "ecs.capability.execution-role-ecr-pull"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-        },
-        {
-            "name": "ecs.capability.task-eni"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+      ],
+      "essential": true,
+      "environment": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/docker-task",
+          "awslogs-region": "ap-south-1",
+          "awslogs-stream-prefix": "ecs"
         }
-    ],
-    "placementConstraints": [],
-    "compatibilities": [
-        "EC2",
-        "FARGATE",
-        "MANAGED_INSTANCES"
-    ],
-    "requiresCompatibilities": [
-        "FARGATE"
-    ],
-    "cpu": "1024",
-    "memory": "3072",
-    "runtimePlatform": {
-        "cpuArchitecture": "X86_64",
-        "operatingSystemFamily": "LINUX"
-    },
-    "registeredAt": "2026-03-02T08:05:16.559Z",
-    "registeredBy": "arn:aws:iam::348344234141:user/vivid_vignesh",
-    "enableFaultInjection": false,
-    "tags": []
+      }
+    }
+  ]
 }
