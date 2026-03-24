@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "container",
-            "image": "348344234141.dkr.ecr.ap-south-1.amazonaws.com/vcube-awsdevops@sha256:58f66bfc7b377d191ae90e98fbd6b9728d710c6d91c1f1faf9180de092472c6c",
+            "image": "736722722555.dkr.ecr.ap-south-1.amazonaws.com/hackathon-app:latest",
             "cpu": 0,
             "portMappings": [
                 {
@@ -34,7 +34,7 @@
         }
     ],
     "family": "docker-task",
-    "executionRoleArn": "arn:aws:iam::348344234141:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::736722722555:role/ecsTaskExecutionRole"
     "networkMode": "awsvpc",
     "revision": 1,
     "volumes": [],
