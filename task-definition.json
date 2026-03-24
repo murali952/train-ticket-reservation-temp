@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:eu-west-2:348344234141:task-definition/docker-task:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:348344234141:task-definition/docker-task:1",
     "containerDefinitions": [
         {
             "name": "container",
-            "image": "348344234141.dkr.ecr.eu-west-2.amazonaws.com/vcube-awsdevops@sha256:58f66bfc7b377d191ae90e98fbd6b9728d710c6d91c1f1faf9180de092472c6c",
+            "image": "348344234141.dkr.ecr.ap-south-1.amazonaws.com/vcube-awsdevops@sha256:58f66bfc7b377d191ae90e98fbd6b9728d710c6d91c1f1faf9180de092472c6c",
             "cpu": 0,
             "portMappings": [
                 {
@@ -25,7 +25,7 @@
                 "options": {
                     "awslogs-group": "/ecs/docker-task",
                     "awslogs-create-group": "true",
-                    "awslogs-region": "eu-west-2",
+                    "awslogs-region": "ap-south-1",
                     "awslogs-stream-prefix": "ecs"
                 },
                 "secretOptions": []
