@@ -113,10 +113,10 @@ jobs:
       - name: Deploy to EKS
         run: |
          ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+             
           kubectl set image deployment/train-app \
-            container=$ACCOUNT_ID.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }} \
+            train-app=$ACCOUNT_ID.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }} \
             -n ${{ secrets.K8S_NAMESPACE }}
-
           kubectl rollout status deployment/train-app \
           -n ${{ secrets.K8S_NAMESPACE }} --timeout=200s
 
